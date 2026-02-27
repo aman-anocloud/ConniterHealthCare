@@ -6,8 +6,8 @@ import { AppModule } from './app.module';
 async function bootstrap() {
     const app = await NestFactory.create(AppModule);
 
-    // CORS – allow Next.js dev server
-    app.enableCors({ origin: ['http://localhost:3000'], credentials: true });
+    // CORS – allow Next.js dev server and production domains
+    app.enableCors({ origin: true, credentials: true });
 
     // Global validation
     app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
@@ -22,8 +22,9 @@ async function bootstrap() {
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup('api/docs', app, document);
 
-    await app.listen(4000);
-    console.log('🚀 Conninter API running on http://localhost:4000');
-    console.log('📚 Swagger docs at  http://localhost:4000/api/docs');
+    const port = process.env.PORT || 4000;
+    await app.listen(port, '0.0.0.0');
+    console.log(`🚀 Conninter API running on port ${port}`);
+    console.log(`📚 Swagger docs at /api/docs`);
 }
 bootstrap();
