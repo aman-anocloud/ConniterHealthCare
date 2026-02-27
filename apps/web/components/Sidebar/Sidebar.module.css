@@ -1,0 +1,169 @@
+.sidebar {
+    width: 260px;
+    min-width: 260px;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    background: #06091a;
+    border-right: 1px solid var(--glass-border);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    overflow-y: auto;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    margin-bottom: var(--space-2);
+}
+
+.logoIcon {
+    width: 32px;
+    height: 32px;
+    background: var(--gradient-cta);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: var(--shadow-glow-blue);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+}
+
+.profileName {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+    word-break: break-all;
+}
+
+.profilePhone {
+    font-size: 12px;
+    color: var(--neutral-500);
+}
+
+.divider {
+    height: 1px;
+    background: var(--glass-border);
+    margin: var(--space-2) 0;
+}
+
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.navItem {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--neutral-400);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.navItem:hover {
+    background: var(--glass-bg);
+    color: white;
+}
+
+.navActive {
+    background: rgba(10, 132, 255, 0.12);
+    color: var(--brand-primary-light);
+    border: 1px solid rgba(10, 132, 255, 0.2);
+}
+
+.navIcon {
+    font-size: 16px;
+}
+
+.badge {
+    margin-left: auto;
+    background: var(--brand-primary);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: var(--radius-full);
+}
+
+.quick {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.quickBtn {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--neutral-500);
+    text-decoration: none;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    transition: all var(--transition-fast);
+}
+
+.quickBtn:hover {
+    border-color: var(--brand-primary);
+    color: var(--brand-primary-light);
+}
+
+.signout {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    padding: 10px 12px;
+    border-radius: var(--radius-md);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--neutral-600);
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: auto;
+    width: 100%;
+    text-align: left;
+    transition: all var(--transition-fast);
+}
+
+.signout:hover {
+    color: var(--brand-error);
+    background: rgba(232, 64, 64, 0.08);
+}

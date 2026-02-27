@@ -1,0 +1,140 @@
+.footer {
+    background: #04080f;
+    border-top: 1px solid var(--glass-border);
+}
+
+.inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: var(--space-16);
+    padding: var(--space-16) var(--space-6);
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    max-width: 360px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 22px;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+}
+
+.logoIcon {
+    width: 36px;
+    height: 36px;
+    background: var(--gradient-cta);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.tagline {
+    font-size: 14px;
+    color: var(--neutral-500);
+    line-height: 1.7;
+}
+
+.social {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.socialLink {
+    width: 36px;
+    height: 36px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--neutral-400);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.socialLink:hover {
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+}
+
+.links {
+    display: flex;
+    gap: var(--space-12);
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.col h4 {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--neutral-500);
+    margin-bottom: var(--space-2);
+}
+
+.col a {
+    font-size: 14px;
+    color: var(--neutral-400);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.col a:hover {
+    color: white;
+}
+
+.bottom {
+    border-top: 1px solid var(--glass-border);
+    padding: var(--space-5) var(--space-6);
+}
+
+.bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom p {
+    font-size: 13px;
+    color: var(--neutral-600);
+}
+
+.tagRight {
+    color: var(--neutral-600);
+}
+
+@media (max-width: 768px) {
+    .inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+    }
+
+    .links {
+        flex-direction: column;
+        gap: var(--space-8);
+    }
+
+    .bottom .container {
+        flex-direction: column;
+        gap: var(--space-2);
+        text-align: center;
+    }
+}

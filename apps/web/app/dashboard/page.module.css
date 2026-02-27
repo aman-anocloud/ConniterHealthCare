@@ -1,0 +1,287 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+    max-width: 1100px;
+}
+
+.header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-4);
+}
+
+.title {
+    font-size: 28px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -0.8px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: var(--neutral-500);
+    margin-top: 4px;
+}
+
+.headerActions {
+    flex-shrink: 0;
+}
+
+/* Stats row */
+.statsRow {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-4);
+}
+
+.statCard {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    transition: all var(--transition-base);
+}
+
+.statCard:hover {
+    transform: translateY(-3px);
+}
+
+.stat_blue {
+    border-left: 3px solid var(--brand-primary);
+}
+
+.stat_green {
+    border-left: 3px solid var(--brand-secondary);
+}
+
+.stat_purple {
+    border-left: 3px solid var(--brand-accent);
+}
+
+.stat_orange {
+    border-left: 3px solid var(--brand-warning);
+}
+
+.statIcon {
+    font-size: 28px;
+}
+
+.statValue {
+    font-size: 26px;
+    font-weight: 900;
+    color: white;
+    letter-spacing: -1px;
+}
+
+.statLabel {
+    font-size: 12px;
+    color: var(--neutral-500);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+/* Calendar section */
+.calendarSection {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: var(--space-6);
+}
+
+.calendar {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+}
+
+.calHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-5);
+}
+
+.calHeader h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+.calNav {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--neutral-400);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calNav:hover {
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+}
+
+.dayNames {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-bottom: var(--space-2);
+}
+
+.dayNames span {
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--neutral-600);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 0;
+}
+
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.dayCell {
+    position: relative;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--neutral-400);
+    border-radius: var(--radius-md);
+    background: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.dayCell:hover {
+    background: var(--glass-bg);
+    color: white;
+    border-color: var(--glass-border);
+}
+
+.today {
+    color: var(--brand-primary-light);
+    font-weight: 800;
+    border-color: rgba(10, 132, 255, 0.3);
+}
+
+.selectedDay {
+    background: rgba(10, 132, 255, 0.2);
+    color: white;
+    border-color: var(--brand-primary);
+}
+
+.eventDot {
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--brand-secondary);
+}
+
+/* Events panel */
+.events {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    padding: var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+}
+
+.eventsTitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: white;
+}
+
+.noEvents {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-4);
+    color: var(--neutral-600);
+    font-size: 14px;
+    text-align: center;
+    padding: var(--space-12) 0;
+}
+
+.noEvents span {
+    font-size: 40px;
+}
+
+.eventList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.eventCard {
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    border-left: 3px solid transparent;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.event_vms {
+    border-left-color: var(--brand-primary);
+}
+
+.event_dms {
+    border-left-color: var(--brand-secondary);
+}
+
+.eventTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+}
+
+.eventHospital,
+.eventTime {
+    font-size: 13px;
+    color: var(--neutral-500);
+}
+
+@media (max-width: 1024px) {
+    .statsRow {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .calendarSection {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .statsRow {
+        grid-template-columns: 1fr;
+    }
+}

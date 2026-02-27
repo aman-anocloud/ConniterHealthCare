@@ -1,0 +1,228 @@
+.section {
+    padding: var(--space-24) 0;
+    background: #070d1c;
+    position: relative;
+}
+
+.header {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto var(--space-12);
+}
+
+.title {
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.1;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.subtitle {
+    font-size: 17px;
+    color: var(--neutral-400);
+}
+
+/* Search bar */
+.searchBar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 760px;
+    margin: 0 auto var(--space-10);
+}
+
+.searchInput {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    padding: 14px 20px;
+    transition: border-color var(--transition-fast);
+}
+
+.searchInput:focus-within {
+    border-color: var(--brand-primary);
+}
+
+.searchInput svg {
+    color: var(--neutral-500);
+    flex-shrink: 0;
+}
+
+.searchInput input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 15px;
+}
+
+.searchInput input::placeholder {
+    color: var(--neutral-600);
+}
+
+.cityChips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+}
+
+.chip {
+    padding: 8px 16px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 500;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: var(--neutral-400);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.chip:hover {
+    border-color: var(--brand-secondary);
+    color: var(--brand-secondary);
+}
+
+.chipActive {
+    background: rgba(0, 200, 150, 0.15);
+    border-color: var(--brand-secondary);
+    color: var(--brand-secondary);
+}
+
+/* Marquee */
+.marqueeWrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.fade,
+.fadeRight {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.fade {
+    left: 0;
+    background: linear-gradient(90deg, #070d1c, transparent);
+}
+
+.fadeRight {
+    right: 0;
+    background: linear-gradient(-90deg, #070d1c, transparent);
+}
+
+.marquee {
+    display: flex;
+    gap: var(--space-4);
+    animation: marquee 30s linear infinite;
+    width: max-content;
+}
+
+.pill {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-full);
+    padding: 12px 20px;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--neutral-200);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.pill:hover {
+    border-color: var(--brand-primary);
+    color: white;
+    background: rgba(10, 132, 255, 0.1);
+}
+
+.pillAvatar {
+    width: 32px;
+    height: 32px;
+    background: var(--gradient-cta);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: white;
+}
+
+/* Filtered results */
+.resultGrid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.resultCard {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    padding: 16px 20px;
+    text-decoration: none;
+    transition: all var(--transition-fast);
+}
+
+.resultCard:hover {
+    border-color: var(--brand-primary);
+    transform: translateX(4px);
+}
+
+.hospitalAvatar {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+    background: var(--gradient-cta);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+}
+
+.hosName {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+}
+
+.hosCities {
+    font-size: 12px;
+    color: var(--neutral-500);
+    margin-top: 2px;
+}
+
+.resultCard .badge {
+    margin-left: auto;
+}
+
+.empty {
+    text-align: center;
+    color: var(--neutral-500);
+    padding: var(--space-12) 0;
+    font-size: 15px;
+}
