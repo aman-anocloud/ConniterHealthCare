@@ -1,7 +1,7 @@
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(2, 6, 23, 0.85);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     z-index: 1000;
     display: flex;
@@ -12,8 +12,8 @@
 }
 
 .modal {
-    background: #0d1b3e;
-    border: 1px solid var(--glass-border);
+    background: white;
+    border: 1px solid var(--neutral-200);
     border-radius: var(--radius-xl);
     padding: var(--space-10);
     max-width: 620px;
@@ -22,15 +22,16 @@
     animation: scaleIn 0.3s ease;
     max-height: 90vh;
     overflow-y: auto;
+    box-shadow: var(--shadow-lg);
 }
 
 .close {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--neutral-400);
+    background: var(--neutral-50);
+    border: 1px solid var(--neutral-200);
+    color: var(--neutral-600);
     width: 36px;
     height: 36px;
     border-radius: 50%;
@@ -43,8 +44,8 @@
 }
 
 .close:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
+    background: var(--neutral-100);
+    color: var(--neutral-900);
 }
 
 .head {
@@ -61,7 +62,7 @@
 .title {
     font-size: 26px;
     font-weight: 800;
-    color: white;
+    color: var(--neutral-900);
     letter-spacing: -0.5px;
 }
 
@@ -99,11 +100,11 @@
 
 .field input,
 .field textarea {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
+    background: white;
+    border: 1px solid var(--neutral-300);
     border-radius: var(--radius-md);
     padding: 12px 16px;
-    color: white;
+    color: var(--neutral-900);
     font-size: 14px;
     transition: border-color var(--transition-fast);
     outline: none;
@@ -114,7 +115,8 @@
 .field input:focus,
 .field textarea:focus {
     border-color: var(--brand-primary);
-    background: rgba(10, 132, 255, 0.05);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(10, 132, 255, 0.1);
 }
 
 .field input::placeholder,
@@ -148,11 +150,11 @@
 .success h3 {
     font-size: 26px;
     font-weight: 800;
-    color: white;
+    color: var(--neutral-900);
 }
 
 .success p {
-    color: var(--neutral-400);
+    color: var(--neutral-600);
     font-size: 15px;
 }
 

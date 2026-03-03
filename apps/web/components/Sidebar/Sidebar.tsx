@@ -1,10 +1,12 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { signOut } from 'firebase/auth';
 import { auth } from '@/lib/firebase';
+import api from '@/lib/api';
 import styles from './Sidebar.module.css';
 
 const nav = [
@@ -17,7 +19,23 @@ const nav = [
 
 export default function Sidebar() {
     const pathname = usePathname();
-    const { user } = useAuth();
+    const { user, token } = useAuth();
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    useEffect(() => {
+        if (token) {
+            if (token === 'dev-admin-token') {
+                setIsAdmin(true);
+                return;
+            }
+
+            api.get('/users/me', { headers: { Authorization: `Bearer ${token}` } })
+                .then((res) => {
+                    setIsAdmin(res.data.role === 'ADMIN');
+                })
+                .catch(() => setIsAdmin(false));
+        }
+    }, [token]);
 
     const isActive = (href: string, exact?: boolean) =>
         exact ? pathname === href : pathname.startsWith(href);
@@ -58,6 +76,17 @@ export default function Sidebar() {
                         )}
                     </Link>
                 ))}
+
+                {isAdmin && (
+                    <Link
+                        href="/admin"
+                        className={`${styles.navItem} ${pathname.startsWith('/admin') ? styles.navActive : ''}`}
+                        style={{ marginTop: 'var(--space-4)', border: '1px solid var(--brand-primary)', background: 'rgba(168,85,247,0.05)' }}
+                    >
+                        <span className={styles.navIcon}>🛡️</span>
+                        <span style={{ color: 'var(--brand-primary)', fontWeight: 600 }}>Admin Panel</span>
+                    </Link>
+                )}
             </nav>
 
             <div className={styles.divider} />

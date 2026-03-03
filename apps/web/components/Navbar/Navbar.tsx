@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -19,8 +20,15 @@ export default function Navbar() {
             <div className={`container ${styles.inner}`}>
                 {/* Logo */}
                 <Link href="/" className={styles.logo}>
-                    <span className={styles.logoIcon}>⊕</span>
-                    <span>Conninter</span>
+                    <Image
+                        src="/logo.png"
+                        alt="Conninter – Meetings Made Easy"
+                        width={52}
+                        height={52}
+                        style={{ objectFit: 'contain' }}
+                        priority
+                    />
+                    <span className={styles.logoName}>Conninter</span>
                 </Link>
 
                 {/* Desktop Links */}

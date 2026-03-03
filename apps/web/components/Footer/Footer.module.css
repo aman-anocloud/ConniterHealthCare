@@ -1,5 +1,5 @@
 .footer {
-    background: #04080f;
+    background: var(--neutral-0);
     border-top: 1px solid var(--glass-border);
 }
 
@@ -23,19 +23,16 @@
     gap: 10px;
     font-size: 22px;
     font-weight: 800;
-    color: white;
+    color: var(--neutral-900);
     text-decoration: none;
 }
 
-.logoIcon {
-    width: 36px;
-    height: 36px;
-    background: var(--gradient-cta);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
+.logoName {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    font-weight: 800;
+    color: #003399;
+    letter-spacing: -0.3px;
 }
 
 .tagline {
@@ -67,7 +64,7 @@
 
 .socialLink:hover {
     border-color: var(--brand-primary);
-    color: var(--brand-primary);
+    color: var(--brand-primary-dark);
 }
 
 .links {
@@ -98,7 +95,7 @@
 }
 
 .col a:hover {
-    color: white;
+    color: var(--brand-primary-dark);
 }
 
 .bottom {

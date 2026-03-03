@@ -1,0 +1,233 @@
+.cta {
+    position: relative;
+    padding: 100px 0;
+    background: var(--brand-primary);
+    overflow: hidden;
+}
+
+/* Two-column layout: content left, cards right */
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+/* Left content */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 16px;
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.badgeDot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #00c896;
+    box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 3px rgba(0, 200, 150, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 6px rgba(0, 200, 150, 0.15);
+    }
+}
+
+.heading {
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    color: white;
+    margin: 0;
+}
+
+.body {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.75;
+    max-width: 480px;
+    margin: 0;
+}
+
+.actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.callBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    color: var(--brand-primary);
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    transition: all var(--transition-base);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.callBtn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+}
+
+.findBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 14px 28px;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transition: all var(--transition-base);
+}
+
+.findBtn:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-2px);
+}
+
+/* Right cards column */
+.cardsCol {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.floatCard {
+    background: white;
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+    position: relative;
+    transition: transform var(--transition-base);
+}
+
+.floatCard:hover {
+    transform: translateX(6px);
+}
+
+.floatIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.floatTitle {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin: 0 0 4px;
+}
+
+.floatSub {
+    font-size: 12px;
+    color: var(--neutral-500);
+    margin: 0;
+}
+
+.floatCheck {
+    width: 24px;
+    height: 24px;
+    background: var(--brand-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.liveIndicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    padding-left: 4px;
+}
+
+.liveDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00c896;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .content {
+        align-items: center;
+        text-align: center;
+    }
+
+    .body {
+        max-width: 100%;
+    }
+
+    .actions {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 640px) {
+    .actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .callBtn,
+    .findBtn {
+        justify-content: center;
+    }
+}

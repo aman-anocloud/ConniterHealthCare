@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -7,8 +8,14 @@ export default function Footer() {
             <div className={`container ${styles.inner}`}>
                 <div className={styles.brand}>
                     <Link href="/" className={styles.logo}>
-                        <span className={styles.logoIcon}>⊕</span>
-                        <span>Conninter</span>
+                        <Image
+                            src="/logo.png"
+                            alt="Conninter Logo"
+                            width={36}
+                            height={36}
+                            style={{ objectFit: 'contain' }}
+                        />
+                        <span className={styles.logoName}>Conninter</span>
                     </Link>
                     <p className={styles.tagline}>
                         The unified healthcare coordination platform connecting hospitals, distributors, and medical representatives.

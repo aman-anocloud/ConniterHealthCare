@@ -1,6 +1,6 @@
 .section {
     padding: var(--space-24) 0;
-    background: #060b16;
+    background: var(--neutral-0);
 }
 
 .header {
@@ -14,13 +14,13 @@
     font-weight: 900;
     letter-spacing: -1.5px;
     line-height: 1.1;
-    color: white;
+    color: var(--neutral-900);
     margin-bottom: 12px;
 }
 
 .subtitle {
     font-size: 17px;
-    color: var(--neutral-400);
+    color: var(--neutral-600);
     line-height: 1.7;
 }
 
@@ -78,13 +78,13 @@
 .stepTitle {
     font-size: 20px;
     font-weight: 800;
-    color: white;
+    color: var(--neutral-900);
     letter-spacing: -0.3px;
 }
 
 .stepDesc {
     font-size: 14px;
-    color: var(--neutral-400);
+    color: var(--neutral-600);
     line-height: 1.7;
 }
 

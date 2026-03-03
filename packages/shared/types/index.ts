@@ -3,8 +3,9 @@ export interface User {
     phone: string;
     name?: string;
     email?: string;
-    role: 'INDIVIDUAL' | 'ORGANISATION';
+    role: 'INDIVIDUAL' | 'ORGANISATION' | 'ADMIN';
     orgName?: string;
+    city?: string;
     createdAt: Date;
 }
 
@@ -56,6 +57,9 @@ export interface BlogPost {
     excerpt: string;
     category: 'Industry Trends' | 'Case Studies' | 'Product Updates' | 'Guides';
     coverImage?: string;
+    readTime?: string;
+    author?: string;
+    tags?: string[];
     publishedAt: Date;
 }
 

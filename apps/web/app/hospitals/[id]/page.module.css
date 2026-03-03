@@ -1,7 +1,7 @@
 .main {
     padding-top: 100px;
     min-height: 100vh;
-    background: #04080f;
+    background: var(--neutral-0);
     padding-bottom: var(--space-24);
 }
 
@@ -41,14 +41,14 @@
 .hosName {
     font-size: 36px;
     font-weight: 900;
-    color: white;
+    color: var(--neutral-900);
     letter-spacing: -1px;
     margin-bottom: 6px;
 }
 
 .hosAddr {
     font-size: 14px;
-    color: var(--neutral-400);
+    color: var(--neutral-600);
     margin-bottom: 12px;
 }
 
@@ -58,7 +58,7 @@
     gap: var(--space-4);
     flex-wrap: wrap;
     font-size: 14px;
-    color: var(--neutral-400);
+    color: var(--neutral-600);
     font-weight: 600;
 }
 
@@ -77,8 +77,8 @@
 }
 
 .section {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: white;
+    border: 1px solid var(--neutral-200);
     border-radius: var(--radius-xl);
     padding: var(--space-6);
 }
@@ -86,13 +86,13 @@
 .sectionTitle {
     font-size: 17px;
     font-weight: 800;
-    color: white;
+    color: var(--neutral-900);
     margin-bottom: var(--space-4);
 }
 
 .about {
     font-size: 14px;
-    color: var(--neutral-400);
+    color: var(--neutral-600);
     line-height: 1.75;
 }
 
@@ -104,25 +104,25 @@
 
 .deptPill {
     padding: 6px 14px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid var(--glass-border);
+    background: var(--neutral-50);
+    border: 1px solid var(--neutral-200);
     border-radius: var(--radius-full);
     font-size: 12px;
     font-weight: 600;
-    color: var(--neutral-300);
+    color: var(--neutral-700);
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .deptPill:hover {
     border-color: var(--brand-primary);
-    color: var(--brand-primary-light);
+    color: var(--brand-primary);
 }
 
 /* Slot picker */
 .slotPicker {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: white;
+    border: 1px solid var(--neutral-200);
     border-radius: var(--radius-xl);
     padding: var(--space-6);
     position: sticky;
@@ -143,17 +143,17 @@
     border-radius: var(--radius-full);
     font-size: 12px;
     font-weight: 600;
-    color: var(--neutral-400);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--glass-border);
+    color: var(--neutral-600);
+    background: var(--neutral-50);
+    border: 1px solid var(--neutral-200);
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .dayActive {
-    background: rgba(10, 132, 255, 0.15);
+    background: rgba(10, 132, 255, 0.1);
     border-color: var(--brand-primary);
-    color: var(--brand-primary-light);
+    color: var(--brand-primary);
 }
 
 .typeRow {
@@ -167,17 +167,17 @@
     border-radius: var(--radius-md);
     font-size: 12px;
     font-weight: 600;
-    color: var(--neutral-500);
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--glass-border);
+    color: var(--neutral-600);
+    background: var(--neutral-50);
+    border: 1px solid var(--neutral-200);
     cursor: pointer;
     transition: all var(--transition-fast);
 }
 
 .typeActive {
-    background: rgba(10, 132, 255, 0.12);
+    background: rgba(10, 132, 255, 0.1);
     border-color: var(--brand-primary);
-    color: var(--brand-primary-light);
+    color: var(--brand-primary);
 }
 
 .slots {
@@ -192,15 +192,15 @@
     align-items: center;
     padding: var(--space-4);
     border-radius: var(--radius-md);
-    border: 1.5px solid var(--glass-border);
-    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--neutral-200);
+    background: white;
     cursor: pointer;
     transition: all var(--transition-base);
     gap: 4px;
 }
 
 .slotVms {
-    border-color: rgba(10, 132, 255, 0.25);
+    border-color: var(--neutral-200);
 }
 
 .slotVms:hover:not(:disabled) {
@@ -209,7 +209,7 @@
 }
 
 .slotDms {
-    border-color: rgba(0, 200, 150, 0.25);
+    border-color: var(--neutral-200);
 }
 
 .slotDms:hover:not(:disabled) {
@@ -225,7 +225,7 @@
 .slotTime {
     font-size: 15px;
     font-weight: 800;
-    color: white;
+    color: var(--neutral-900);
 }
 
 .slotType {
@@ -262,7 +262,7 @@
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(2, 6, 23, 0.85);
+    background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(12px);
     z-index: 1000;
     display: flex;
@@ -272,8 +272,8 @@
 }
 
 .confirmModal {
-    background: #0d1b3e;
-    border: 1px solid var(--glass-border);
+    background: white;
+    border: 1px solid var(--neutral-200);
     border-radius: var(--radius-xl);
     padding: var(--space-10);
     max-width: 420px;
@@ -287,18 +287,18 @@
 .confirmModal h3 {
     font-size: 22px;
     font-weight: 800;
-    color: white;
+    color: var(--neutral-900);
 }
 
 .confirmModal p {
     font-size: 14px;
-    color: var(--neutral-400);
+    color: var(--neutral-600);
 }
 
 .slotBig {
     font-size: 18px;
     font-weight: 700;
-    color: white;
+    color: var(--neutral-900);
 }
 
 .confirmActions {

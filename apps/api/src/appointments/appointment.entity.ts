@@ -25,10 +25,10 @@ export class Appointment {
     @ManyToOne(() => Slot, { eager: true })
     @ApiProperty() slot: Slot;
 
-    @Column({ type: 'enum', enum: SlotType })
+    @Column({ type: 'varchar' })
     @ApiProperty() type: SlotType;
 
-    @Column({ type: 'enum', enum: AppointmentStatus, default: AppointmentStatus.PENDING })
+    @Column({ type: 'varchar', default: AppointmentStatus.PENDING })
     @ApiProperty() status: AppointmentStatus;
 
     @Column({ nullable: true })

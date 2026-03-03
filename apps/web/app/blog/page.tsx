@@ -1,7 +1,11 @@
 import { Metadata } from 'next';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 import Link from 'next/link';
 import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
+import BlogListClient from './BlogListClient';
 import styles from './page.module.css';
 
 export const metadata: Metadata = {
@@ -9,18 +13,38 @@ export const metadata: Metadata = {
     description: 'Healthcare industry trends, case studies, and product updates from the Conninter team.',
 };
 
-const CATEGORIES = ['All', 'Industry Trends', 'Case Studies', 'Product Updates', 'Guides'];
+const CATEGORIES = ['All', 'Industry Trends', 'Case Studies', 'Product Updates', 'News'];
 
-const posts = [
-    { slug: 'eliminating-unplanned-doctor-visits', title: 'Eliminating Unplanned Doctor Visits in Pharma Sales', excerpt: 'How medical representatives can use digital slot booking to increase meeting success rates by 3x while reducing hospital friction.', category: 'Industry Trends', readTime: '6 min', date: 'Feb 20, 2026', emoji: '📅' },
-    { slug: 'hospital-delivery-congestion', title: 'The Hidden Cost of Hospital Delivery Congestion', excerpt: 'A supply chain analysis of how unscheduled deliveries cost Indian hospitals ₹12 crores annually in gate management alone.', category: 'Case Studies', readTime: '8 min', date: 'Feb 14, 2026', emoji: '🚚' },
-    { slug: 'vms-roi-case-study', title: 'How Sakra World Cut Lobby Wait Times by 70%', excerpt: 'An inside look at how Sakra World Hospital deployed Conninter VMS and transformed their visitor experience in 90 days.', category: 'Case Studies', readTime: '10 min', date: 'Feb 08, 2026', emoji: '🏥' },
-    { slug: 'otp-healthcare-security', title: 'Why OTP Authentication Is the Right Choice for Healthcare Apps', excerpt: 'Zero-friction phone authentication balances security and usability for time-pressed medical professionals.', category: 'Industry Trends', readTime: '5 min', date: 'Jan 30, 2026', emoji: '🔐' },
-    { slug: 'conninter-dms-launch', title: 'Introducing Conninter DMS – Delivery Management for Hospitals', excerpt: 'Our new Delivery Management System lets distributors schedule hospital gate slots in advance. Here is everything you need to know.', category: 'Product Updates', readTime: '4 min', date: 'Jan 22, 2026', emoji: '🆕' },
-    { slug: 'digital-transformation-hospital', title: 'A Complete Guide to Digital Transformation for Hospitals', excerpt: 'From visitor management to supply chain — how Indian hospitals can modernise operations with connected digital tools.', category: 'Guides', readTime: '12 min', date: 'Jan 15, 2026', emoji: '⚡' },
-];
+async function getPosts() {
+    try {
+        const directory = path.join(process.cwd(), 'content', 'blog');
+        if (!fs.existsSync(directory)) return [];
 
-export default function BlogPage() {
+        const filenames = fs.readdirSync(directory);
+        const posts = filenames
+            .filter((name) => name.endsWith('.md'))
+            .map((name) => {
+                const fullPath = path.join(directory, name);
+                const fileContents = fs.readFileSync(fullPath, 'utf8');
+                const { data } = matter(fileContents);
+
+                return {
+                    slug: name.replace('.md', ''),
+                    ...data,
+                };
+            })
+            .sort((a: any, b: any) => new Date(b.publishedAt || 0).getTime() - new Date(a.publishedAt || 0).getTime());
+
+        return posts;
+    } catch (err) {
+        console.error('Failed to read local markdown posts', err);
+        return [];
+    }
+}
+
+export default async function BlogPage() {
+    const posts = await getPosts();
+
     return (
         <>
             <Navbar />
@@ -38,40 +62,7 @@ export default function BlogPage() {
                         ))}
                     </div>
 
-                    <div className={styles.grid}>
-                        {/* Featured */}
-                        <div className={styles.featured}>
-                            <div className={styles.featEmoji}>{posts[0].emoji}</div>
-                            <span className="badge badge-purple">{posts[0].category}</span>
-                            <h2 className={styles.featTitle}>{posts[0].title}</h2>
-                            <p className={styles.featExcerpt}>{posts[0].excerpt}</p>
-                            <div className={styles.featMeta}>
-                                <span>🕐 {posts[0].readTime} read</span>
-                                <span>{posts[0].date}</span>
-                            </div>
-                            <Link href={`/blog/${posts[0].slug}`} className="btn-primary" style={{ width: 'fit-content' }}>
-                                Read Article →
-                            </Link>
-                        </div>
-
-                        {/* Rest */}
-                        <div className={styles.rest}>
-                            {posts.slice(1).map((p) => (
-                                <Link key={p.slug} href={`/blog/${p.slug}`} className={styles.postCard}>
-                                    <div className={styles.postEmoji}>{p.emoji}</div>
-                                    <div style={{ flex: 1, minWidth: 0 }}>
-                                        <span className="badge badge-purple" style={{ marginBottom: 8, display: 'inline-flex' }}>{p.category}</span>
-                                        <h3 className={styles.postTitle}>{p.title}</h3>
-                                        <p className={styles.postExcerpt}>{p.excerpt}</p>
-                                        <div className={styles.postMeta}>
-                                            <span>🕐 {p.readTime}</span>
-                                            <span>{p.date}</span>
-                                        </div>
-                                    </div>
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
+                    <BlogListClient posts={posts} />
                 </div>
             </main>
             <Footer />

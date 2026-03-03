@@ -1,13 +1,34 @@
+/* ─────────────────────────────
+   Hospital Ribbon Section
+   ───────────────────────────── */
 .section {
-    padding: var(--space-24) 0;
-    background: #070d1c;
+    padding: 100px 0;
+    background: #ffffff;
+    /* solid white background */
     position: relative;
+    overflow: hidden;
+}
+
+/* subtle radial glow */
+.section::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(10, 132, 255, 0.10) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 .header {
     text-align: center;
     max-width: 640px;
-    margin: 0 auto var(--space-12);
+    margin: 0 auto 48px;
+    position: relative;
+    z-index: 1;
 }
 
 .title {
@@ -15,41 +36,46 @@
     font-weight: 900;
     letter-spacing: -1.5px;
     line-height: 1.1;
-    color: white;
+    color: #0f172a;
     margin-bottom: 12px;
 }
 
 .subtitle {
-    font-size: 17px;
-    color: var(--neutral-400);
+    font-size: 16px;
+    color: #475569;
+    line-height: 1.6;
 }
 
-/* Search bar */
-.searchBar {
+/* ── Search bar ── */
+.searchWrap {
     display: flex;
     flex-direction: column;
-    gap: var(--space-4);
-    max-width: 760px;
-    margin: 0 auto var(--space-10);
+    gap: 16px;
+    max-width: 680px;
+    margin: 0 auto 48px;
+    position: relative;
+    z-index: 1;
 }
 
 .searchInput {
     display: flex;
     align-items: center;
     gap: 12px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: #ffffff;
+    border: 1px solid var(--neutral-200);
+    box-shadow: var(--shadow-sm);
     border-radius: var(--radius-full);
     padding: 14px 20px;
-    transition: border-color var(--transition-fast);
+    transition: all var(--transition-fast);
 }
 
 .searchInput:focus-within {
     border-color: var(--brand-primary);
+    box-shadow: 0 0 0 3px rgba(0, 51, 153, 0.1);
 }
 
 .searchInput svg {
-    color: var(--neutral-500);
+    color: var(--neutral-400);
     flex-shrink: 0;
 }
 
@@ -58,12 +84,13 @@
     background: none;
     border: none;
     outline: none;
-    color: white;
+    color: var(--neutral-900);
     font-size: 15px;
+    font-family: var(--font-primary);
 }
 
 .searchInput input::placeholder {
-    color: var(--neutral-600);
+    color: var(--neutral-400);
 }
 
 .cityChips {
@@ -74,128 +101,198 @@
 }
 
 .chip {
-    padding: 8px 16px;
+    padding: 7px 16px;
     border-radius: var(--radius-full);
     font-size: 13px;
     font-weight: 500;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--neutral-400);
+    background: var(--neutral-50);
+    border: 1px solid var(--neutral-200);
+    color: var(--neutral-600);
     cursor: pointer;
     transition: all var(--transition-fast);
+    font-family: var(--font-primary);
 }
 
 .chip:hover {
-    border-color: var(--brand-secondary);
-    color: var(--brand-secondary);
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+    background: rgba(0, 51, 153, 0.04);
 }
 
 .chipActive {
-    background: rgba(0, 200, 150, 0.15);
-    border-color: var(--brand-secondary);
-    color: var(--brand-secondary);
+    background: var(--brand-primary);
+    border-color: var(--brand-primary);
+    color: white;
+    font-weight: 600;
 }
 
-/* Marquee */
-.marqueeWrap {
+/* ──────────────────────────────────
+   Marquee Ribbon
+   ────────────────────────────────── */
+.ribbonOuter {
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
-.fade,
+/* fade edges */
+.fadeLeft,
 .fadeRight {
     position: absolute;
     top: 0;
     bottom: 0;
-    width: 120px;
+    width: 160px;
     z-index: 2;
     pointer-events: none;
 }
 
-.fade {
+.fadeLeft {
     left: 0;
-    background: linear-gradient(90deg, #070d1c, transparent);
+    background: linear-gradient(90deg, #ffffff 0%, transparent 100%);
 }
 
 .fadeRight {
     right: 0;
-    background: linear-gradient(-90deg, #070d1c, transparent);
+    background: linear-gradient(-90deg, #ffffff 0%, transparent 100%);
 }
 
-.marquee {
+.ribbon {
     display: flex;
-    gap: var(--space-4);
-    animation: marquee 30s linear infinite;
+    gap: 16px;
     width: max-content;
+    animation: marquee 28s linear infinite;
+    padding: 8px 0;
 }
 
-.pill {
+/* Pause on hovering ribbon */
+.ribbonOuter:hover .ribbon {
+    animation-play-state: paused;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-33.333%);
+    }
+
+    /* move by 1/3 = 1 full set */
+}
+
+/* ── Individual Hospital Card ── */
+.card {
     display: flex;
     align-items: center;
-    gap: 12px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-full);
-    padding: 12px 20px;
+    gap: 14px;
+    background: #ffffff;
+    border: 1px solid var(--neutral-200);
+    box-shadow: var(--shadow-sm);
+    border-radius: 16px;
+    padding: 16px 22px;
     white-space: nowrap;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--neutral-200);
-    transition: all var(--transition-fast);
     flex-shrink: 0;
+    cursor: pointer;
+    transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.pill:hover {
+.card:hover {
+    background: var(--neutral-50);
     border-color: var(--brand-primary);
-    color: white;
-    background: rgba(10, 132, 255, 0.1);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
 }
 
-.pillAvatar {
-    width: 32px;
-    height: 32px;
-    background: var(--gradient-cta);
-    border-radius: 50%;
+.cardAvatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 800;
     color: white;
+    flex-shrink: 0;
 }
 
-/* Filtered results */
+.cardBody {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.cardName {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin: 0;
+}
+
+.cardCity {
+    font-size: 11px;
+    color: var(--neutral-500);
+    margin: 0;
+}
+
+.cardTier {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-left: 4px;
+}
+
+.cardTier[data-tier="Premium"] {
+    background: rgba(10, 132, 255, 0.1);
+    color: #0050cc;
+    border: 1px solid rgba(10, 132, 255, 0.2);
+}
+
+.cardTier[data-tier="Partner"] {
+    background: rgba(0, 200, 150, 0.1);
+    color: #009973;
+    border: 1px solid rgba(0, 200, 150, 0.2);
+}
+
+/* ── Filtered Results ── */
 .resultGrid {
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
-    max-width: 760px;
+    gap: 12px;
+    max-width: 680px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .resultCard {
     display: flex;
     align-items: center;
-    gap: var(--space-4);
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid var(--neutral-200);
+    box-shadow: var(--shadow-sm);
+    border-radius: 14px;
     padding: 16px 20px;
     text-decoration: none;
-    transition: all var(--transition-fast);
+    transition: all 0.25s ease;
 }
 
 .resultCard:hover {
+    background: var(--neutral-50);
     border-color: var(--brand-primary);
     transform: translateX(4px);
 }
 
-.hospitalAvatar {
+.resultAvatar {
     width: 44px;
     height: 44px;
     min-width: 44px;
-    background: var(--gradient-cta);
-    border-radius: var(--radius-md);
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -207,13 +304,14 @@
 .hosName {
     font-size: 15px;
     font-weight: 700;
-    color: white;
+    color: var(--neutral-900);
+    margin: 0;
 }
 
 .hosCities {
     font-size: 12px;
     color: var(--neutral-500);
-    margin-top: 2px;
+    margin: 2px 0 0;
 }
 
 .resultCard .badge {
@@ -223,6 +321,6 @@
 .empty {
     text-align: center;
     color: var(--neutral-500);
-    padding: var(--space-12) 0;
+    padding: 64px 0;
     font-size: 15px;
 }

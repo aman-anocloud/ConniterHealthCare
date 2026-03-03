@@ -22,10 +22,10 @@ export class Slot {
     @Column()
     @ApiProperty() endTime: string;
 
-    @Column({ type: 'enum', enum: SlotType })
+    @Column({ type: 'varchar' })
     @ApiProperty() type: SlotType;
 
-    @Column({ type: 'enum', enum: SlotStatus, default: SlotStatus.AVAILABLE })
+    @Column({ type: 'varchar', default: SlotStatus.AVAILABLE })
     @ApiProperty() status: SlotStatus;
 
     @Column({ nullable: true })

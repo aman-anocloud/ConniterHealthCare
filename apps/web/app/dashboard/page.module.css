@@ -15,13 +15,13 @@
 .title {
     font-size: 28px;
     font-weight: 900;
-    color: white;
+    color: var(--neutral-900);
     letter-spacing: -0.8px;
 }
 
 .subtitle {
     font-size: 14px;
-    color: var(--neutral-500);
+    color: var(--neutral-600);
     margin-top: 4px;
 }
 
@@ -37,8 +37,8 @@
 }
 
 .statCard {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: white;
+    border: 1px solid var(--neutral-200);
     border-radius: var(--radius-lg);
     padding: var(--space-5);
     display: flex;
@@ -49,6 +49,7 @@
 
 .statCard:hover {
     transform: translateY(-3px);
+    box-shadow: var(--shadow-sm);
 }
 
 .stat_blue {
@@ -74,14 +75,14 @@
 .statValue {
     font-size: 26px;
     font-weight: 900;
-    color: white;
+    color: var(--neutral-900);
     letter-spacing: -1px;
 }
 
 .statLabel {
     font-size: 12px;
-    color: var(--neutral-500);
-    font-weight: 500;
+    color: var(--neutral-600);
+    font-weight: 600;
     margin-top: 2px;
 }
 
@@ -93,10 +94,11 @@
 }
 
 .calendar {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: white;
+    border: 1px solid var(--neutral-200);
     border-radius: var(--radius-xl);
     padding: var(--space-6);
+    box-shadow: var(--shadow-sm);
 }
 
 .calHeader {
@@ -109,16 +111,16 @@
 .calHeader h3 {
     font-size: 16px;
     font-weight: 700;
-    color: white;
+    color: var(--neutral-900);
 }
 
 .calNav {
     width: 32px;
     height: 32px;
     border-radius: var(--radius-md);
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    color: var(--neutral-400);
+    background: var(--neutral-50);
+    border: 1px solid var(--neutral-200);
+    color: var(--neutral-600);
     font-size: 14px;
     cursor: pointer;
     transition: all var(--transition-fast);
@@ -162,8 +164,8 @@
     align-items: center;
     justify-content: center;
     font-size: 13px;
-    font-weight: 500;
-    color: var(--neutral-400);
+    font-weight: 600;
+    color: var(--neutral-700);
     border-radius: var(--radius-md);
     background: none;
     border: 1px solid transparent;
@@ -172,13 +174,13 @@
 }
 
 .dayCell:hover {
-    background: var(--glass-bg);
-    color: white;
-    border-color: var(--glass-border);
+    background: var(--neutral-50);
+    color: var(--neutral-900);
+    border-color: var(--neutral-200);
 }
 
 .today {
-    color: var(--brand-primary-light);
+    color: var(--brand-primary);
     font-weight: 800;
     border-color: rgba(10, 132, 255, 0.3);
 }
@@ -202,19 +204,20 @@
 
 /* Events panel */
 .events {
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
+    background: white;
+    border: 1px solid var(--neutral-200);
     border-radius: var(--radius-xl);
     padding: var(--space-6);
     display: flex;
     flex-direction: column;
     gap: var(--space-5);
+    box-shadow: var(--shadow-sm);
 }
 
 .eventsTitle {
     font-size: 16px;
     font-weight: 700;
-    color: white;
+    color: var(--neutral-900);
 }
 
 .noEvents {
@@ -241,7 +244,7 @@
 }
 
 .eventCard {
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--neutral-50);
     border-radius: var(--radius-lg);
     padding: var(--space-5);
     border-left: 3px solid transparent;
@@ -261,13 +264,13 @@
 .eventTitle {
     font-size: 15px;
     font-weight: 700;
-    color: white;
+    color: var(--neutral-900);
 }
 
 .eventHospital,
 .eventTime {
     font-size: 13px;
-    color: var(--neutral-500);
+    color: var(--neutral-600);
 }
 
 @media (max-width: 1024px) {

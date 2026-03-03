@@ -1,0 +1,123 @@
+.editorContainer {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-2);
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--glass-border);
+    flex-wrap: wrap;
+}
+
+.toolBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    color: var(--neutral-400);
+    transition: all var(--transition-fast);
+}
+
+.toolBtn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--neutral-0);
+}
+
+.toolBtn.active {
+    background: rgba(10, 132, 255, 0.2);
+    color: var(--brand-primary-light);
+}
+
+.toolBtn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    background: transparent;
+}
+
+.divider {
+    width: 1px;
+    height: 20px;
+    background: var(--glass-border);
+    margin: 0 var(--space-1);
+}
+
+.contentArea {
+    padding: var(--space-4);
+    min-height: 200px;
+    cursor: text;
+}
+
+/* Tiptap inner editor styles */
+.contentArea :global(.tiptap) {
+    outline: none;
+    min-height: 200px;
+    color: var(--neutral-0);
+    line-height: 1.6;
+}
+
+.contentArea :global(.tiptap p.is-editor-empty:first-child::before) {
+    content: attr(data-placeholder);
+    float: left;
+    color: var(--neutral-500);
+    pointer-events: none;
+    height: 0;
+}
+
+.contentArea :global(.tiptap p) {
+    margin-bottom: 1em;
+}
+
+.contentArea :global(.tiptap h1),
+.contentArea :global(.tiptap h2),
+.contentArea :global(.tiptap h3) {
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.contentArea :global(.tiptap h2) {
+    font-size: 20px;
+}
+
+.contentArea :global(.tiptap ul),
+.contentArea :global(.tiptap ol) {
+    padding-left: 1.5em;
+    margin-bottom: 1em;
+}
+
+.contentArea :global(.tiptap blockquote) {
+    border-left: 3px solid var(--brand-primary);
+    padding-left: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    color: var(--neutral-300);
+    font-style: italic;
+}
+
+.contentArea :global(.tiptap code) {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    font-family: inherit;
+    font-size: 0.9em;
+}
+
+.contentArea :global(.tiptap pre) {
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    padding: 1rem;
+    border-radius: var(--radius-sm);
+    overflow-x: auto;
+    margin-bottom: 1rem;
+}

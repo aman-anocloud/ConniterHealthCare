@@ -1,200 +1,307 @@
 .hero {
     position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: var(--gradient-hero);
+    padding: 160px 0 80px;
+    background: var(--neutral-0);
     overflow: hidden;
-    padding-top: 100px;
 }
 
-/* Animated grid */
-.grid {
-    position: absolute;
-    inset: 0;
-    background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 100%);
-}
-
-/* Orbs */
-.orb1 {
-    position: absolute;
-    top: -120px;
-    right: -120px;
-    width: 600px;
-    height: 600px;
-    border-radius: 50%;
-    opacity: 0.12;
-    filter: blur(80px);
-    transition: background 1.5s ease;
-}
-
-.orb2 {
-    position: absolute;
-    bottom: -80px;
-    left: -80px;
-    width: 400px;
-    height: 400px;
-    background: #6c5ce7;
-    border-radius: 50%;
-    opacity: 0.1;
-    filter: blur(80px);
-}
-
-/* Content */
-.content {
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 80px;
+    align-items: center;
     position: relative;
     z-index: 10;
-    text-align: center;
-    max-width: 820px;
-    padding: 0 var(--space-6);
 }
 
-.fadeIn {
-    animation: fadeInUp 0.5s ease both;
-}
-
-.fadeOut {
-    animation: fadeOut 0.4s ease both;
-}
-
-@keyframes fadeOut {
-    to {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
+/* Left Column */
+.contentCol {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .dot {
     width: 6px;
     height: 6px;
-    background: var(--brand-primary-light);
+    background: var(--brand-primary);
     border-radius: 50%;
     display: inline-block;
-    animation: pulse-glow 2s ease-in-out infinite;
 }
 
 .headline {
-    font-size: clamp(40px, 6vw, 76px);
+    font-size: clamp(48px, 5.5vw, 64px);
     font-weight: 900;
-    line-height: 1.08;
+    line-height: 1.1;
     letter-spacing: -2px;
-    color: white;
-    margin: 16px 0 24px;
-}
-
-.headline span {
-    display: inline-block;
-    animation: fadeInUp 0.5s ease both;
+    color: var(--neutral-900);
+    margin: 0 0 24px;
+    max-width: 500px;
 }
 
 .sub {
-    font-size: clamp(16px, 2vw, 20px);
-    color: var(--neutral-400);
+    font-size: 18px;
+    color: var(--neutral-600);
     line-height: 1.7;
-    max-width: 640px;
-    margin: 0 auto 40px;
+    max-width: 480px;
+    margin: 0 0 40px;
     font-weight: 400;
 }
 
 .ctas {
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: var(--space-4);
-    flex-wrap: wrap;
-    margin-bottom: 48px;
+    margin-bottom: 64px;
 }
 
-.dots {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+.trustSection {
+    margin-top: 10px;
 }
 
-.dotBtn {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
-    border: none;
-    cursor: pointer;
-    transition: all var(--transition-spring);
-}
-
-.dotActive {
-    width: 28px;
-    border-radius: 4px;
-    background: var(--brand-primary);
-}
-
-/* Stats row */
-.statsRow {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2px;
-    width: 100%;
-    max-width: 900px;
-    margin-top: 64px;
-    background: var(--glass-bg);
-    border: 1px solid var(--glass-border);
-    backdrop-filter: blur(20px);
-    border-radius: var(--radius-xl);
-    overflow: hidden;
-}
-
-.statCard {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: var(--space-5) var(--space-6);
-    border-right: 1px solid var(--glass-border);
-}
-
-.statCard:last-child {
-    border-right: none;
-}
-
-.statValue {
-    font-size: 36px;
-    font-weight: 900;
-    letter-spacing: -1px;
-    line-height: 1;
-}
-
-.statLabel {
-    font-size: 12px;
-    font-weight: 500;
+.trustLabel {
+    font-size: 13px;
     color: var(--neutral-500);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    margin-top: 6px;
+    font-weight: 500;
+    margin-bottom: 16px;
 }
 
-@media (max-width: 768px) {
-    .statsRow {
+.trustLogos {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.trustPill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--neutral-50);
+    border: 1px solid var(--neutral-200);
+    border-radius: var(--radius-full);
+    padding: 4px 12px 4px 4px;
+    transition: box-shadow var(--transition-fast);
+}
+
+.trustPill:hover {
+    box-shadow: var(--shadow-sm);
+}
+
+.trustAvatar {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 800;
+    color: white;
+    flex-shrink: 0;
+}
+
+.trustName {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--neutral-700);
+}
+
+/* Right Column & Image */
+.imageCol {
+    position: relative;
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 600px;
+}
+
+.mainImagePlaceholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--neutral-100) 0%, var(--neutral-200) 100%);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.dashboardImgWrap {
+    position: absolute;
+    inset: 0;
+    top: 40px;
+    /* below the status badge */
+}
+
+.topStatusBadge {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: white;
+    padding: 6px 14px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--neutral-700);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    z-index: 2;
+}
+
+.statusDot {
+    width: 6px;
+    height: 6px;
+    background: var(--brand-secondary);
+    border-radius: 50%;
+}
+
+.floatingCard {
+    position: absolute;
+    bottom: -30px;
+    left: -40px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    padding: 20px 24px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    width: 420px;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.cardIcon {
+    width: 44px;
+    height: 44px;
+    background: var(--neutral-100);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--brand-primary);
+    flex-shrink: 0;
+}
+
+.cardContent {
+    flex: 1;
+}
+
+.cardContent h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin: 0 0 4px 0;
+}
+
+.cardContent p {
+    font-size: 13px;
+    color: var(--neutral-500);
+    margin: 0;
+}
+
+.cardCheck {
+    width: 24px;
+    height: 24px;
+    background: var(--brand-secondary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cardTime {
+    position: absolute;
+    bottom: -10px;
+    right: 24px;
+    font-size: 11px;
+    color: var(--neutral-400);
+    font-weight: 500;
+}
+
+/* Background gradient orb */
+.orb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(10, 132, 255, 0.04) 0%, rgba(255, 255, 255, 0) 70%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+@media (max-width: 1024px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+    }
+
+    .contentCol {
+        align-items: center;
+    }
+
+    .contentCol .badge {
+        align-self: center !important;
+    }
+
+    .ctas {
+        justify-content: center;
+    }
+
+    .floatingCard {
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%) !important;
+        animation: none;
+        width: 90%;
+        max-width: 400px;
+    }
+}
+
+@media (max-width: 640px) {
+    .ctas {
         flex-direction: column;
-        border-radius: var(--radius-lg);
-        margin: 48px var(--space-6) 0;
-    }
-
-    .statCard {
-        border-right: none;
-        border-bottom: 1px solid var(--glass-border);
         width: 100%;
+        gap: 16px;
     }
 
-    .statCard:last-child {
-        border-bottom: none;
+    .ctas>* {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .trustLogos {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .imageWrapper {
+        height: 400px;
     }
 }

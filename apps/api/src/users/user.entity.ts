@@ -4,6 +4,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export enum UserRole {
     INDIVIDUAL = 'INDIVIDUAL',
     ORGANISATION = 'ORGANISATION',
+    ADMIN = 'ADMIN',
 }
 
 @Entity('users')
@@ -20,7 +21,7 @@ export class User {
     @Column({ nullable: true })
     @ApiProperty() email: string;
 
-    @Column({ type: 'enum', enum: UserRole, default: UserRole.INDIVIDUAL })
+    @Column({ type: 'varchar', default: UserRole.INDIVIDUAL })
     @ApiProperty() role: UserRole;
 
     @Column({ nullable: true })

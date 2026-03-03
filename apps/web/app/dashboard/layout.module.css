@@ -1,7 +1,7 @@
 .shell {
     display: flex;
     min-height: 100vh;
-    background: #04080f;
+    background: var(--neutral-0);
 }
 
 .main {
@@ -18,8 +18,8 @@
     align-items: center;
     justify-content: center;
     gap: var(--space-4);
-    background: var(--gradient-hero);
-    color: var(--neutral-400);
+    background: white;
+    color: var(--neutral-600);
     font-size: 15px;
 }
 

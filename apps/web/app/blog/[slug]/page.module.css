@@ -1,0 +1,124 @@
+.main {
+    padding-top: 100px;
+    min-height: 100vh;
+    background: var(--neutral-0);
+    padding-bottom: var(--space-24);
+}
+
+.article {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+}
+
+.header {
+    margin-bottom: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+.title {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--neutral-900);
+    margin-bottom: var(--space-4);
+    letter-spacing: -1px;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 32px;
+    }
+}
+
+.meta {
+    color: var(--neutral-600);
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+}
+
+.coverImageContainer {
+    margin-bottom: var(--space-10);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--neutral-200);
+}
+
+.coverImage {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+    display: block;
+}
+
+.content {
+    color: var(--neutral-800);
+    font-size: 18px;
+    line-height: 1.8;
+    font-family: var(--font-secondary);
+}
+
+.content :global(p) {
+    margin-bottom: 1.5em;
+}
+
+.content :global(h2) {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--neutral-900);
+    margin-top: 2em;
+    margin-bottom: 0.75em;
+    font-family: var(--font-primary);
+}
+
+.content :global(h3) {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--neutral-900);
+    margin-top: 1.5em;
+    margin-bottom: 0.75em;
+    font-family: var(--font-primary);
+}
+
+.content :global(ul),
+.content :global(ol) {
+    margin-bottom: 1.5em;
+    padding-left: 2em;
+}
+
+.content :global(li) {
+    margin-bottom: 0.5em;
+}
+
+.content :global(blockquote) {
+    border-left: 4px solid var(--brand-primary);
+    padding-left: 1.5em;
+    margin-bottom: 1.5em;
+    color: var(--neutral-700);
+    font-style: italic;
+    background: var(--neutral-50);
+    padding: 1.5em;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.content :global(pre) {
+    background: var(--neutral-900);
+    padding: 1.5em;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin-bottom: 1.5em;
+    color: white;
+}
+
+.content :global(code) {
+    font-family: monospace;
+    font-size: 0.9em;
+    background: var(--neutral-100);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    color: var(--brand-primary);
+}

@@ -5,7 +5,6 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { HospitalsModule } from './hospitals/hospitals.module';
 import { AppointmentsModule } from './appointments/appointments.module';
-import { BlogModule } from './blog/blog.module';
 import { LeadsModule } from './leads/leads.module';
 
 @Module({
@@ -15,20 +14,33 @@ import { LeadsModule } from './leads/leads.module';
         TypeOrmModule.forRootAsync({
             imports: [ConfigModule],
             inject: [ConfigService],
-            useFactory: (config: ConfigService) => ({
-                type: 'postgres',
-                url: config.get<string>('DATABASE_URL'),
-                autoLoadEntities: true,
-                synchronize: process.env.NODE_ENV !== 'production', // Use migrations in prod
-                logging: process.env.NODE_ENV === 'development',
-            }),
+            useFactory: (config: ConfigService) => {
+                const dbUrl = config.get<string>('DATABASE_URL');
+                if (dbUrl) {
+                    return {
+                        type: 'postgres',
+                        url: dbUrl,
+                        autoLoadEntities: true,
+                        synchronize: true, // Auto-sync schema for fast local dev
+                        logging: false,
+                    };
+                }
+
+                // Fallback to SQLite for zero-config local development
+                return {
+                    type: 'sqlite',
+                    database: 'db.sqlite',
+                    autoLoadEntities: true,
+                    synchronize: true,
+                    logging: false,
+                };
+            }
         }),
 
         AuthModule,
         UsersModule,
         HospitalsModule,
         AppointmentsModule,
-        BlogModule,
         LeadsModule,
     ],
 })

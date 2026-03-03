@@ -4,10 +4,10 @@
    DESIGN TOKENS
    ============================================ */
 :root {
-  /* Brand Colors */
-  --brand-primary: #0a84ff;
-  --brand-primary-dark: #0060df;
-  --brand-primary-light: #45a3ff;
+  /* Brand Colors – Conninter Navy */
+  --brand-primary: #003399;
+  --brand-primary-dark: #002277;
+  --brand-primary-light: #1a5bcc;
   --brand-secondary: #00c896;
   --brand-secondary-dark: #00a67a;
   --brand-accent: #6c5ce7;
@@ -29,24 +29,24 @@
   --neutral-950: #020617;
 
   /* Gradients */
-  --gradient-hero: linear-gradient(135deg, #0a0e1a 0%, #0d1b3e 40%, #0a1628 100%);
-  --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+  --gradient-hero: linear-gradient(135deg, #e8eeff 0%, #dde7ff 40%, #ffffff 100%);
+  --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 1) 0%, rgba(248, 250, 252, 1) 100%);
   --gradient-primary: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
   --gradient-success: linear-gradient(135deg, var(--brand-secondary) 0%, #00b4d8 100%);
-  --gradient-cta: linear-gradient(135deg, #0a84ff 0%, #6c5ce7 100%);
+  --gradient-cta: linear-gradient(135deg, #003399 0%, #1a5bcc 100%);
 
   /* Shadows */
-  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.08);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.12);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.16);
-  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.24);
-  --shadow-glow-blue: 0 0 40px rgba(10, 132, 255, 0.35);
-  --shadow-glow-green: 0 0 40px rgba(0, 200, 150, 0.35);
-  --shadow-glow-purple: 0 0 40px rgba(108, 92, 231, 0.35);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.12);
+  --shadow-glow-blue: 0 0 40px rgba(0, 51, 153, 0.25);
+  --shadow-glow-green: 0 0 40px rgba(0, 200, 150, 0.25);
+  --shadow-glow-purple: 0 0 40px rgba(108, 92, 231, 0.25);
 
   /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(0, 0, 0, 0.08);
   --glass-blur: blur(20px);
 
   /* Typography */
@@ -84,7 +84,9 @@
 /* ============================================
    RESET & BASE
    ============================================ */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -98,8 +100,8 @@ html {
 
 body {
   font-family: var(--font-primary);
-  background-color: var(--neutral-950);
-  color: var(--neutral-0);
+  background-color: var(--neutral-0);
+  color: var(--neutral-900);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -109,7 +111,8 @@ a {
   text-decoration: none;
 }
 
-img, svg {
+img,
+svg {
   display: block;
   max-width: 100%;
 }
@@ -121,7 +124,9 @@ button {
   background: none;
 }
 
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: inherit;
 }
 
@@ -129,64 +134,141 @@ input, textarea, select {
    KEYFRAME ANIMATIONS
    ============================================ */
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(32px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-40px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slideInRight {
-  from { opacity: 0; transform: translateX(40px); }
-  to   { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to   { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-12px); }
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(10, 132, 255, 0.3); }
-  50%       { box-shadow: 0 0 50px rgba(10, 132, 255, 0.7); }
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(10, 132, 255, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 50px rgba(10, 132, 255, 0.7);
+  }
 }
 
 @keyframes shimmer {
-  0%   { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
 }
 
 @keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes counterUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============================================
@@ -232,10 +314,12 @@ input, textarea, select {
   transition: transform var(--transition-spring), box-shadow var(--transition-base);
   cursor: pointer;
 }
+
 .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-glow-blue);
 }
+
 .btn-primary:active {
   transform: translateY(0);
 }
@@ -245,9 +329,9 @@ input, textarea, select {
   align-items: center;
   gap: var(--space-2);
   padding: 13px 28px;
-  background: transparent;
-  color: white;
-  border: 1.5px solid var(--glass-border);
+  background: white;
+  color: var(--neutral-800);
+  border: 1.5px solid var(--neutral-200);
   border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 15px;
@@ -255,6 +339,7 @@ input, textarea, select {
   cursor: pointer;
   backdrop-filter: blur(10px);
 }
+
 .btn-secondary:hover {
   background: var(--glass-bg);
   border-color: var(--brand-primary);
@@ -267,16 +352,17 @@ input, textarea, select {
   gap: var(--space-2);
   padding: 10px 20px;
   background: transparent;
-  color: var(--neutral-400);
+  color: var(--neutral-600);
   border-radius: var(--radius-md);
   font-weight: 500;
   font-size: 14px;
   transition: all var(--transition-fast);
   cursor: pointer;
 }
+
 .btn-ghost:hover {
-  background: var(--glass-bg);
-  color: var(--neutral-0);
+  background: var(--neutral-100);
+  color: var(--neutral-900);
 }
 
 /* Section container */
@@ -299,21 +385,25 @@ input, textarea, select {
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
+
 .badge-blue {
   background: rgba(10, 132, 255, 0.15);
   color: var(--brand-primary-light);
   border: 1px solid rgba(10, 132, 255, 0.3);
 }
+
 .badge-green {
   background: rgba(0, 200, 150, 0.15);
   color: var(--brand-secondary);
   border: 1px solid rgba(0, 200, 150, 0.3);
 }
+
 .badge-purple {
   background: rgba(108, 92, 231, 0.15);
   color: #a29bfe;
   border: 1px solid rgba(108, 92, 231, 0.3);
 }
+
 .badge-orange {
   background: rgba(244, 161, 0, 0.15);
   color: var(--brand-warning);
@@ -328,16 +418,80 @@ input, textarea, select {
 }
 
 /* Animation helpers */
-.animate-fade-in-up { animation: fadeInUp 0.6s ease both; }
-.animate-fade-in    { animation: fadeIn 0.5s ease both; }
-.animate-float      { animation: float 4s ease-in-out infinite; }
-.animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease both;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
 
 /* Scrollbar */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--neutral-900); }
-::-webkit-scrollbar-thumb { background: var(--neutral-700); border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: var(--neutral-600); }
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neutral-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neutral-300);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neutral-400);
+}
 
 /* Selection */
-::selection { background: rgba(10, 132, 255, 0.3); color: white; }
+::selection {
+  background: rgba(10, 132, 255, 0.2);
+  color: var(--neutral-900);
+}
+
+/* ============================================
+   SCROLL ENTRANCE ANIMATIONS
+   Use class "animate-reveal" on any element.
+   The IntersectionObserver hook adds "in-view"
+   to trigger the animation.
+   ============================================ */
+.animate-reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.animate-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger children using CSS custom property */
+.animate-reveal:nth-child(2) {
+  transition-delay: 0.08s;
+}
+
+.animate-reveal:nth-child(3) {
+  transition-delay: 0.16s;
+}
+
+.animate-reveal:nth-child(4) {
+  transition-delay: 0.24s;
+}
+
+.animate-reveal:nth-child(5) {
+  transition-delay: 0.32s;
+}
+
+.animate-reveal:nth-child(6) {
+  transition-delay: 0.40s;
+}

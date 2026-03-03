@@ -9,18 +9,26 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@tiptap/react": "^3.20.0",
+        "@tiptap/starter-kit": "^3.20.0",
         "axios": "^1.7.2",
         "date-fns": "^3.6.0",
         "firebase": "^10.12.2",
+        "framer-motion": "^12.34.3",
+        "gray-matter": "^4.0.3",
         "lucide-react": "^0.395.0",
+        "marked": "^17.0.3",
         "next": "^14.2.35",
         "react": "^18.3.0",
-        "react-dom": "^18.3.0"
+        "react-dom": "^18.3.0",
+        "react-hook-form": "^7.71.2",
+        "turndown": "^7.2.2"
     },
     "devDependencies": {
         "@types/node": "^20",
         "@types/react": "^18",
         "@types/react-dom": "^18",
+        "@types/turndown": "^5.0.6",
         "eslint": "^8",
         "eslint-config-next": "14.2.3",
         "typescript": "^5"
