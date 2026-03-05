@@ -2,14 +2,17 @@ import { Metadata } from 'next';
 import Navbar from '@/components/Navbar/Navbar';
 import Hero from '@/components/Hero/Hero';
 import StatsBar from '@/components/StatsBar/StatsBar';
+import ChooseGateway from '@/components/ChooseGateway/ChooseGateway';
 import AboutSection from '@/components/AboutSection/AboutSection';
 import Departments from '@/components/Departments/Departments';
 import FeaturedServices from '@/components/FeaturedServices/FeaturedServices';
 import DoctorsDirectory from '@/components/DoctorsDirectory/DoctorsDirectory';
 import WhyChooseUs from '@/components/WhyChooseUs/WhyChooseUs';
 import HospitalRibbon from '@/components/HospitalRibbon/HospitalRibbon';
+import PartnersSection from '@/components/PartnersSection/PartnersSection';
 import EmergencyCTA from '@/components/EmergencyCTA/EmergencyCTA';
 import MinimalBlogList from '@/components/MinimalBlogList/MinimalBlogList';
+import BlogInsights from '@/components/BlogInsights/BlogInsights';
 import NewsletterStrip from '@/components/NewsletterStrip/NewsletterStrip';
 import AppBanner from '@/components/AppBanner/AppBanner';
 import Footer from '@/components/Footer/Footer';
@@ -36,6 +39,9 @@ export default function HomePage() {
                 {/* 2. Stats strip with count-up animation on scroll */}
                 <StatsBar />
 
+                {/* 2b. Choose Your Gateway - Role selection */}
+                <ChooseGateway />
+
                 {/* 3. About – Two-column story + feature cards with SVG icons */}
                 <AboutSection />
 
@@ -54,10 +60,16 @@ export default function HomePage() {
                 {/* 8. Hospital Ribbon – Trusted partner hospitals */}
                 <HospitalRibbon />
 
+                {/* 8b. Partners Section - Deep dive into alliances */}
+                <PartnersSection />
+
                 {/* 9. Emergency CTA – Full-width blue gradient, two-column */}
                 <EmergencyCTA />
 
-                {/* 10. Blog – Recent healthcare articles */}
+                {/* 10. Blog Insights – Curated industry trends & expert opinions */}
+                <BlogInsights />
+
+                {/* 11. MinimalBlogList – Recent platform updates from CMS */}
                 <MinimalBlogList />
 
                 {/* 11. Newsletter Strip – Email subscription */}

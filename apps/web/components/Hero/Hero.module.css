@@ -130,18 +130,89 @@
     box-shadow: var(--shadow-lg);
 }
 
-.dashboardImgWrap {
+/* ── Image Slider ── */
+.sliderContainer {
     position: absolute;
     inset: 0;
-    top: 40px;
-    /* below the status badge */
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+    visibility: hidden;
+}
+
+.activeSlide {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* ── Slider Navigation ── */
+.sliderNav {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    padding: 8px 16px;
+    border-radius: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.navBtn {
+    background: none;
+    border: none;
+    color: var(--neutral-700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+    padding: 4px;
+}
+
+.navBtn:hover {
+    color: var(--brand-primary);
+}
+
+.dots {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.dotIndicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--neutral-300);
+    border: none;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    padding: 0;
+}
+
+.activeDot {
+    width: 20px;
+    border-radius: 4px;
+    background: var(--brand-primary);
 }
 
 .topStatusBadge {
     position: absolute;
     top: 24px;
-    right: 24px;
-    background: white;
+    left: 24px;
+    background: rgba(255, 255, 255, 0.9);
     padding: 6px 14px;
     border-radius: 40px;
     font-size: 12px;
@@ -151,7 +222,8 @@
     align-items: center;
     gap: 6px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    z-index: 2;
+    backdrop-filter: blur(8px);
+    z-index: 20;
 }
 
 .statusDot {

@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { signOut } from 'firebase/auth';
@@ -44,8 +45,14 @@ export default function Sidebar() {
         <aside className={styles.sidebar}>
             {/* Logo */}
             <Link href="/" className={styles.logo}>
-                <span className={styles.logoIcon}>⊕</span>
-                <span>Conninter</span>
+                <Image
+                    src="/logo.png"
+                    alt="Conninter Logo"
+                    width={140}
+                    height={36}
+                    style={{ objectFit: 'contain' }}
+                    priority
+                />
             </Link>
 
             {/* Profile */}

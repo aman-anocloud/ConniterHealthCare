@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
 
 /* ============================================
    DESIGN TOKENS
@@ -50,8 +50,8 @@
   --glass-blur: blur(20px);
 
   /* Typography */
-  --font-primary: 'Outfit', 'Inter', sans-serif;
-  --font-secondary: 'Inter', sans-serif;
+  --font-primary: 'Montserrat', sans-serif;
+  --font-secondary: 'Montserrat', sans-serif;
 
   /* Spacing */
   --space-1: 4px;
@@ -282,6 +282,41 @@ select {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border-radius: var(--radius-lg);
+}
+
+/* Gradient Border Hover Effect */
+.hover-gradient-border {
+  position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-gradient-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  /* accounts for border */
+  border-radius: inherit;
+  padding: 2px;
+  background: linear-gradient(135deg, var(--brand-secondary-dark) 0%, var(--brand-primary) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.hover-gradient-border:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: transparent !important;
+  /* hide default border */
+}
+
+.hover-gradient-border:hover::after {
+  opacity: 1;
 }
 
 /* Gradient Text */

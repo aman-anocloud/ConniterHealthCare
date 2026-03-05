@@ -1,8 +1,17 @@
 'use client';
 
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Hero.module.css';
+
+const SLIDER_IMAGES = [
+    '/slider/slider1.jpg',
+    '/slider/slider2.jpg',
+    '/slider/slider3.jpg',
+    '/slider/slider4.jpg',
+    '/slider/slider5.jpg',
+];
 
 const trustHospitals = [
     { initials: 'S', name: 'Sakra World', color: '#003399' },
@@ -12,6 +21,27 @@ const trustHospitals = [
 ];
 
 export default function Hero() {
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    const nextSlide = useCallback(() => {
+        setCurrentSlide((prev) => (prev + 1) % SLIDER_IMAGES.length);
+    }, []);
+
+    const prevSlide = useCallback(() => {
+        setCurrentSlide((prev) => (prev === 0 ? SLIDER_IMAGES.length - 1 : prev - 1));
+    }, []);
+
+    useEffect(() => {
+        if (!isMounted) return;
+        const interval = setInterval(nextSlide, 2000);
+        return () => clearInterval(interval);
+    }, [isMounted, nextSlide]);
+
     return (
         <section className={styles.hero}>
             <div className={styles.container}>
@@ -62,19 +92,52 @@ export default function Hero() {
                 {/* ── Right Image Column ── */}
                 <div className={styles.imageCol}>
                     <div className={styles.imageWrapper}>
-                        {/* Real hero image */}
+                        {/* Image Slider */}
                         <div className={styles.mainImagePlaceholder}>
                             <div className={styles.topStatusBadge}>
                                 <span className={styles.statusDot}></span> System Active
                             </div>
-                            <div className={styles.dashboardImgWrap}>
-                                <Image
-                                    src="/hero-image.png"
-                                    alt="Conninter – Doctor and patient using digital health platform"
-                                    fill
-                                    style={{ objectFit: 'cover', objectPosition: 'center top', borderRadius: '0 0 20px 20px' }}
-                                    priority
-                                />
+
+                            {/* Slides */}
+                            <div className={styles.sliderContainer}>
+                                {isMounted && SLIDER_IMAGES.map((src, idx) => (
+                                    <div
+                                        key={src}
+                                        className={`${styles.slide} ${idx === currentSlide ? styles.activeSlide : ''}`}
+                                    >
+                                        <Image
+                                            src={src}
+                                            alt={`Conninter Platform Preview ${idx + 1}`}
+                                            fill
+                                            style={{ objectFit: 'cover', objectPosition: 'center top' }}
+                                            priority={idx === 0}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+
+                            {/* Slider Navigation */}
+                            <div className={styles.sliderNav}>
+                                <button onClick={prevSlide} className={styles.navBtn} aria-label="Previous image">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="m15 18-6-6 6-6" />
+                                    </svg>
+                                </button>
+                                <div className={styles.dots}>
+                                    {SLIDER_IMAGES.map((_, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={() => setCurrentSlide(idx)}
+                                            className={`${styles.dotIndicator} ${idx === currentSlide ? styles.activeDot : ''}`}
+                                            aria-label={`Go to slide ${idx + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                                <button onClick={nextSlide} className={styles.navBtn} aria-label="Next image">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="m9 18 6-6-6-6" />
+                                    </svg>
+                                </button>
                             </div>
                         </div>
 

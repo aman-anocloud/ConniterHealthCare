@@ -23,12 +23,11 @@ export default function Navbar() {
                     <Image
                         src="/logo.png"
                         alt="Conninter – Meetings Made Easy"
-                        width={52}
-                        height={52}
+                        width={180}
+                        height={48}
                         style={{ objectFit: 'contain' }}
                         priority
                     />
-                    <span className={styles.logoName}>Conninter</span>
                 </Link>
 
                 {/* Desktop Links */}
