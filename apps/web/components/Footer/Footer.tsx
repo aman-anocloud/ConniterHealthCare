@@ -12,7 +12,7 @@ export default function Footer() {
                             src="/logo.png"
                             alt="Conninter Logo"
                             width={160}
-                            height={42}
+                            height={60}
                             style={{ objectFit: 'contain' }}
                         />
                     </Link>

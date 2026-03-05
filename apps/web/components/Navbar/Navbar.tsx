@@ -23,8 +23,8 @@ export default function Navbar() {
                     <Image
                         src="/logo.png"
                         alt="Conninter – Meetings Made Easy"
-                        width={180}
-                        height={48}
+                        width={160}
+                        height={60}
                         style={{ objectFit: 'contain' }}
                         priority
                     />
